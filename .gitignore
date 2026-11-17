@@ -1,20 +1,14 @@
-# Secrets and local environment
+# Dependencies & Environment
+**/node_modules/
 .env
 .env.*
 !.env.example
-
-# Python
-__pycache__/
+# Python cache & tests
+**/__pycache__/
 *.py[cod]
+.pytest_cache/
 .venv/
 venv/
-.pytest_cache/
-
-# Frontend
-node_modules/
+# Build artifacts
 frontend/dist/
-
-# Local data and logs
-database/*.db
-database/*.jsonl
 *.log
