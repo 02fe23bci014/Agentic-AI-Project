@@ -1,3 +1,8 @@
+import os
+import sys
+
+# Ensure project root is in sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import unittest
 from backend.agents.cloud_operations_agent import CloudOperationsAgent
 from backend.agents.swarm_adapters import create_cloud_operations_swarm_agent

@@ -365,7 +365,7 @@ export default function DisciplineAgentsPage({ currentUser }) {
       {/* Banner */}
       <div className="disc-header-banner">
         <div className="disc-banner-content">
-          <div className="disc-eyebrow">Lab 13 · Discipline-Specific Engineering Agents</div>
+          <div className="disc-eyebrow">Discipline Specific Worklet · Engineering Simulation</div>
           <h1>Mechanical, Civil & Electrical Engineering Worklet Engine</h1>
           <p>
             Automated physics and engineering solvers executing step-by-step mathematical derivations,
@@ -722,26 +722,28 @@ export default function DisciplineAgentsPage({ currentUser }) {
                   <div className="disc-code-editor-box">
                     <textarea
                       className="disc-code-textarea"
-                      rows={14}
+                      rows={10}
                       value={customCode}
                       onChange={(e) => setCustomCode(e.target.value)}
+                      placeholder="# Python simulation code will appear here after solving worklet..."
                     />
                   </div>
 
                   {/* Terminal Output */}
-                  {worklet.code_execution_stdout && (
-                    <div className="disc-terminal-box">
-                      <div className="disc-terminal-header">
-                        <div className="terminal-dots">
-                          <span className="dot red" />
-                          <span className="dot yellow" />
-                          <span className="dot green" />
-                        </div>
-                        <span className="terminal-title">simulation_verification.stdout</span>
+                  <div className="disc-terminal-box">
+                    <div className="disc-terminal-header">
+                      <div className="terminal-dots">
+                        <span className="dot red" />
+                        <span className="dot yellow" />
+                        <span className="dot green" />
                       </div>
-                      <pre className="disc-terminal-body">{worklet.code_execution_stdout}</pre>
+                      <span className="terminal-title">simulation_verification.stdout</span>
+                      {runningCode && <span className="disc-terminal-running" style={{ marginLeft: 'auto', color: '#38bdf8', fontSize: '12px' }}>Executing...</span>}
                     </div>
-                  )}
+                    <pre className="disc-terminal-body">
+                      {worklet.code_execution_stdout || '[Click "Run Simulation in Sandbox" above to execute this script in the backend sandbox]'}
+                    </pre>
+                  </div>
                 </div>
               )}
 

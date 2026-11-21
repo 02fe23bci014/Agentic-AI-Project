@@ -5,12 +5,7 @@ import FacultyDashboard from './pages/FacultyDashboard.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import ResultsPage from './pages/ResultsPage.jsx';
 import StudentDashboard from './pages/StudentDashboard.jsx';
-import DeepResearchPage from './pages/DeepResearchPage.jsx';
-import CloudOpsPage from './pages/CloudOpsPage.jsx';
-import SDLCFactoryPage from './pages/SDLCFactoryPage.jsx';
-import SafetyGovernancePage from './pages/SafetyGovernancePage.jsx';
 import DisciplineAgentsPage from './pages/DisciplineAgentsPage.jsx';
-import CapstoneStudioPage from './pages/CapstoneStudioPage.jsx';
 import SwarmMonitor from './components/SwarmMonitor.jsx';
 import { api } from './services/api';
 import './styles.css';
@@ -18,6 +13,7 @@ import './styles.css';
 const STUDENT_VIEWS = [
   { id: 'Labs', label: 'My Labs' },
   { id: 'Results', label: 'My Results & Grades' },
+  { id: 'Discipline', label: 'Discipline Specific Worklet' },
 ];
 
 const FACULTY_VIEWS = [
@@ -224,43 +220,28 @@ export default function App() {
 
       {/* Main View Router */}
       <main className="main-content-wrapper">
-        {/* Student View Options */}
-        {!isFaculty && (
-          <>
-            {inExam ? (
-              <ExamPage
-                exam={activeExam}
-                onExit={exitExam}
-                currentStudentId={currentUser.username}
-              />
-            ) : view === 'Labs' ? (
-              <StudentDashboard
-                onStart={startExam}
-                currentStudentId={currentUser.username}
-              />
-            ) : (
-              <ResultsPage
-                isFaculty={false}
-                currentStudentId={currentUser.username}
-              />
-            )}
-          </>
-        )}
-
-        {/* Faculty View Options */}
-        {isFaculty && (
-          <>
-            {view === 'Faculty' ? (
-              <FacultyDashboard />
-            ) : view === 'Results' ? (
-              <ResultsPage
-                isFaculty={true}
-                currentStudentId={currentUser.username}
-              />
-            ) : (
-              <SwarmMonitor />
-            )}
-          </>
+        {inExam ? (
+          <ExamPage
+            exam={activeExam}
+            onExit={exitExam}
+            currentStudentId={currentUser.username}
+          />
+        ) : !isFaculty && view === 'Discipline' ? (
+          <DisciplineAgentsPage currentUser={currentUser} />
+        ) : isFaculty && view === 'Swarm' ? (
+          <SwarmMonitor />
+        ) : view === 'Results' ? (
+          <ResultsPage
+            isFaculty={isFaculty}
+            currentStudentId={currentUser.username}
+          />
+        ) : isFaculty ? (
+          <FacultyDashboard />
+        ) : (
+          <StudentDashboard
+            onStart={startExam}
+            currentStudentId={currentUser.username}
+          />
         )}
       </main>
 

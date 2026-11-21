@@ -1,0 +1,8 @@
+{"event": "submission_received", "timestamp": "2026-11-17T07:50:10.120Z", "submission_id": "sub-04824569", "student_id": "student1", "exam_id": "exam-algo-001", "question_id": "q-dsa-arr-l1", "language": "python", "status": "queued"}
+{"event": "ast_security_scan", "timestamp": "2026-11-17T07:50:10.180Z", "submission_id": "sub-04824569", "risk_tier": "LOW", "blast_radius_score": 0, "untrusted_syscalls_found": false, "status": "APPROVED_FOR_EXECUTION"}
+{"event": "sandbox_execution", "timestamp": "2026-11-17T07:50:10.350Z", "submission_id": "sub-04824569", "exit_code": 0, "cpu_duration_sec": 0.12, "peak_memory_mb": 14.2, "test_cases_passed": 2, "test_cases_total": 2, "status": "TESTS_PASSED"}
+{"event": "sdlc_code_quality", "timestamp": "2026-11-17T07:50:10.410Z", "submission_id": "sub-04824569", "cyclomatic_complexity": 2, "lines_of_code": 18, "clean_code_grade": "A", "status": "COMPLIANT"}
+{"event": "swarm_consensus_evaluation", "timestamp": "2026-11-17T07:50:10.550Z", "submission_id": "sub-04824569", "scores": {"architect": 10.0, "qa_lead": 10.0, "governance": 10.0}, "final_score": 10.0, "max_points": 10.0, "status": "COMPLETED"}
+{"event": "submission_received", "timestamp": "2026-11-17T07:54:02.146Z", "submission_id": "sub-8c15fe88", "student_id": "student1", "exam_id": "exam-algo-002", "question_id": "q-dsa-arr-l2", "language": "python", "status": "queued"}
+{"event": "sandbox_execution", "timestamp": "2026-11-17T07:54:02.400Z", "submission_id": "sub-8c15fe88", "exit_code": 0, "cpu_duration_sec": 0.14, "test_cases_passed": 2, "test_cases_total": 2, "status": "TESTS_PASSED"}
+{"event": "evaluation_completed", "timestamp": "2026-11-17T07:54:02.620Z", "submission_id": "sub-8c15fe88", "final_score": 15.0, "status": "COMPLETED"}

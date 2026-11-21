@@ -1,3 +1,8 @@
+import os
+import sys
+
+# Ensure project root is in sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import unittest
 from backend.agents.capstone_agent import CapstoneStudioAgent
 from backend.agents.swarm_adapters import create_capstone_studio_swarm_agent
